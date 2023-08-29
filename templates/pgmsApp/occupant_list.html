@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8" />
+    <title>Occupant Details</title>
+    
+    <script>
+        body{
+            background-color : green;
+        }
+        .box{
+            margin-left:100px;
+        }
+    </script>
+  </head>
+  <body>
+    <div class="box">
+        <h1>Occupant Details:</h1>
+        <table border=2>
+            <thead>
+                <th>ID</th>
+                <th>Name </th>
+                <th>Occupation</th>
+                <th>Room Type</th>
+                <th>Entry Date</th>
+                <th colspan=2>Operations</th>
+                <th>Add Exit Date</th>
+                <th>Show Bill</th>
+            </thead>
+            {% for occupant in occupant_list %}
+            <tr>
+                <td>{{ occupant.id }}</td>
+                <td>{{ occupant.name }}</td>
+                <td>{{ occupant.occupation }}</td>
+                <td>{{ occupant.roomType }}</td>
+                <td>{{ occupant.entryDate }}</td>
+                <td><a href="/update/{{occupant.id}}">Update</a></td>
+                <td><a href="/delete/{{occupant.id}}">Delete</a></td>
+                <td><a href="/addDate/{{occupant.id}}">Enter</a></td>
+                <td><a href="/calculate/{{occupant.id}}">Bill</a></td>
+            </tr>
+            {% endfor %}
+            {%csrf_token%}
+        </table>
+    </div>
+        <a href="create/">Add Occupant</a>
+        <a href="/accounts/logout/">Log Out</a>
+    </body>
+</html>

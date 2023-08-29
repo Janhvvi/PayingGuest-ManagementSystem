@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data</title>
+  </head>
+  <body>
+    <h1>Your Total Bill :</h1>
+    <table border=2>
+      <thead>
+        <th>Entry Date</th>
+        <th>Exit Date</th>
+        <th>Bill   :</th>
+
+      </thead>
+    <tr>
+        {%for eachEntry in data%}
+          <td>{{eachEntry.entry}}</td>
+          <td>{{eachEntry.exit}}</td>
+          <td>{{eachEntry.days}}</td>
+    </tr>     
+        {%endfor%}
+  </table>
+    
+    <a href="/">Home</a>
+  </body>
+</html>
